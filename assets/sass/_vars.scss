@@ -1,0 +1,37 @@
+//Variables
+:root {
+    //primary colors
+    --lightRed: hsl(356, 100%, 66%); //CTA Text
+    --veryLightRed:hsl(355, 100%, 74%); // CTA hover background
+    --veryDarkBlue: hsl(208, 49%, 24%); // Headings
+    
+    //Neutral 
+    --white: hsl(0,0%, 100%); //text
+    --grayBlue:hsl(240, 2%, 79%); //footer text
+    --veryDarkGrayBlue:hsl(207, 13%, 34%); //body copy
+    --veryDarkBlackBlue: hsl(240, 10%, 16%); //footer background
+    
+    //background gradient - intro/CTA mobile nav
+    --bkgVeryLightRed: hsl(13, 100%, 72%);
+    --bkgLightRed: hsl(353, 100%, 62%);
+
+    //background gradient - body
+    --bkgDarkGrayBlue: hsl(237, 17%, 21%);
+    --bkgDarkDesatBlue: hsl(237, 23%, 32%);
+
+    //font families
+    --overPass: 'Overpass', sans-serif;
+    --ubuntu: 'Ubuntu', sans-serif;
+
+    //base font size
+    --baseFont: 16px;
+
+    //breakpoints
+    --mobilePhonesDown: 599px;
+    --tabletVertUp: 600px;
+    --tabletHorzUp: 900px;
+    --desktopUp: 1200px;
+    --wideScreenUp: 1800px;
+
+}
+

@@ -1,0 +1,15 @@
+//Nav styles
+nav#left-main-menu,
+nav#right-main-menu {
+    text-align: center;
+    ul {
+        display: none;
+        li{
+
+        }
+    }
+}
+li ul.sub-menu {
+    height: 0;
+    opacity: 0;
+}

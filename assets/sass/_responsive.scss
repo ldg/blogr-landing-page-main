@@ -1,0 +1,26 @@
+//Responsive Styles
+
+//phones
+@media screen and ( max-width: var(--mobilePhonesDown) ){
+
+}
+
+// tablet -vertical and up
+@media screen and (min-width:var(--tabletVertUp) ) {
+
+}
+
+//tablet - horizontal and up
+@media screen and (min-width: var(--tabletHorzUp) ) {
+    
+}
+
+// desktop and up
+@media screen and (min-width: var(--desktopUp)) {
+
+}
+
+//wide screen and up
+@media screen and (min-width: var(--wideScreenUp)) {
+    
+}
