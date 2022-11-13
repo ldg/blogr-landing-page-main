@@ -1,15 +1,62 @@
 //Nav styles
+#mobile-menu-container {
+    background-color: var(--white);
+    grid-column: span 3;
+    margin-top: 1em;
+    padding: 2em;
+    border-radius: 10px;
+    opacity: 0;
+    height: 60px;
+    
+}
 nav#left-main-menu,
 nav#right-main-menu {
     text-align: center;
+    grid-column: span 2;
+    // opacity: 1;
+    // transition: opacity 4s;
     ul {
-        display: none;
+        // height: 0;
+        // opacity: 0;
         li{
 
         }
     }
 }
+
 li ul.sub-menu {
     height: 0;
     opacity: 0;
+}
+
+//animations
+@keyframes open-menu {
+   from {opacity: 0; height: 0;}
+   to {opacity:1; height: 100%;} 
+}
+
+@keyframes close-menu {
+    from{opacity: 1; height: 100%;}
+    to{opacity: 0; height: 0;}
+}
+
+//utility class to open submenu
+.open {
+    animation-name: open-menu;
+    animation-duration: .2s;
+    animation-fill-mode: forwards;
+}
+.close {
+    animation-name: close-menu;
+    animation-duration: .1s;
+    animation-fill-mode: forwards;
+}
+
+// for buttons and icons
+.show {
+    display: block;
+}
+
+.hide {
+   display: none;
 }

@@ -33,9 +33,14 @@ section#hero {
             grid-column: 1/span 4;
             display: grid;
             grid-template-columns: 1fr 1fr;
-                #hamburger{
+                #hamburger,
+                #close-icon {
                     grid-column: 3/-1;
                 }
+                // #close-icon {
+                //     height: 0;
+                //     opacity: 0;
+                // }
         }
         h1 {
             color: var(--white);

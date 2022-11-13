@@ -140,7 +140,8 @@ section#hero header {
   display: grid;
   grid-template-columns: 1fr 1fr;
 }
-section#hero header #hamburger {
+section#hero header #hamburger,
+section#hero header #close-icon {
   grid-column: 3/-1;
 }
 section#hero h1 {
@@ -221,17 +222,91 @@ footer#footer ul li a {
   font-family: var(--ubuntu);
 }
 
+#mobile-menu-container {
+  background-color: var(--white);
+  grid-column: span 3;
+  margin-top: 1em;
+  padding: 2em;
+  border-radius: 10px;
+  opacity: 0;
+  height: 60px;
+}
+
 nav#left-main-menu,
 nav#right-main-menu {
   text-align: center;
-}
-nav#left-main-menu ul,
-nav#right-main-menu ul {
-  display: none;
+  grid-column: span 2;
 }
 li ul.sub-menu {
   height: 0;
   opacity: 0;
+}
+
+@-webkit-keyframes open-menu {
+  from {
+    opacity: 0;
+    height: 0;
+  }
+  to {
+    opacity: 1;
+    height: 100%;
+  }
+}
+
+@keyframes open-menu {
+  from {
+    opacity: 0;
+    height: 0;
+  }
+  to {
+    opacity: 1;
+    height: 100%;
+  }
+}
+@-webkit-keyframes close-menu {
+  from {
+    opacity: 1;
+    height: 100%;
+  }
+  to {
+    opacity: 0;
+    height: 0;
+  }
+}
+@keyframes close-menu {
+  from {
+    opacity: 1;
+    height: 100%;
+  }
+  to {
+    opacity: 0;
+    height: 0;
+  }
+}
+.open {
+  -webkit-animation-name: open-menu;
+          animation-name: open-menu;
+  -webkit-animation-duration: 0.2s;
+          animation-duration: 0.2s;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
+}
+
+.close {
+  -webkit-animation-name: close-menu;
+          animation-name: close-menu;
+  -webkit-animation-duration: 0.1s;
+          animation-duration: 0.1s;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
+}
+
+.show {
+  display: block;
+}
+
+.hide {
+  display: none;
 }
 
 .attribution {
