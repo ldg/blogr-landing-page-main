@@ -1,65 +1,76 @@
-/***
-    The new CSS reset - version 1.7.3 (last updated 7.8.2022)
-    GitHub page: https://github.com/elad2412/the-new-css-reset
-
-    NOTE: Removed css with vendor prefixes to prevent SASS complaints
-***/
-
-/*
-    Remove all the styles of the "User-Agent-Stylesheet", except for the 'display' property
-    - The "symbol *" part is to solve Firefox SVG sprite bug
- */
- *:where(:not(html, iframe, canvas, img, svg, video, audio):not(svg *, symbol *)) {
-    all: unset;
-    display: revert;
-}
-
-/* Preferred box-sizing value */
+/* Box sizing rules */
 *,
 *::before,
 *::after {
-    box-sizing: border-box;
+  box-sizing: border-box;
 }
 
-/* Reapply the pointer cursor for anchor tags */
-a, button {
-    cursor: revert;
+/* Remove default margin */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+figure,
+blockquote,
+dl,
+dd {
+  margin: 0;
 }
 
-/* Remove list styles (bullets/numbers) */
-ol, ul, menu {
-    list-style: none;
+/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+ul[role='list'],
+ol[role='list'] {
+  list-style: none;
 }
 
-/* For images to not be able to exceed their container */
-img {
-    max-width: 100%;
+/* Set core root defaults */
+html:focus-within {
+  scroll-behavior: smooth;
 }
 
-/* removes spacing between cells in tables */
-table {
-    border-collapse: collapse;
+/* Set core body defaults */
+body {
+  min-height: 100vh;
+  text-rendering: optimizeSpeed;
+  line-height: 1.5;
 }
 
-/* revert the 'white-space' property for textarea elements on Safari */
-textarea {
-    white-space: revert;
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+  text-decoration-skip-ink: auto;
 }
 
-/* minimum style to allow to style meter element */
-meter {
-    appearance: revert;
+/* Make images easier to work with */
+img,
+picture {
+  max-width: 100%;
+  display: block;
 }
 
-/* reset default text opacity of input placeholder */
-::placeholder {
-    color: unset;
+/* Inherit fonts for inputs and buttons */
+input,
+button,
+textarea,
+select {
+  font: inherit;
 }
 
-/* fix the feature of 'hidden' attribute.
-   display:revert; revert to element instead of attribute */
-:where([hidden]) {
-    display: none;
+/* Remove all animations, transitions and smooth scroll for people that prefer not to see them */
+@media (prefers-reduced-motion: reduce) {
+  html:focus-within {
+   scroll-behavior: auto;
+  }
+  
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }
 
 

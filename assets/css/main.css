@@ -1,19 +1,4 @@
-/***
-    The new CSS reset - version 1.7.3 (last updated 7.8.2022)
-    GitHub page: https://github.com/elad2412/the-new-css-reset
-
-    NOTE: Removed css with vendor prefixes to prevent SASS complaints
-***/
-/*
-    Remove all the styles of the "User-Agent-Stylesheet", except for the 'display' property
-    - The "symbol *" part is to solve Firefox SVG sprite bug
- */
-*:where(:not(html, iframe, canvas, img, svg, video, audio):not(svg *, symbol *)) {
-  all: unset;
-  display: revert;
-}
-
-/* Preferred box-sizing value */
+/* Box sizing rules */
 *,
 *::before,
 *::after {
@@ -21,61 +6,76 @@
           box-sizing: border-box;
 }
 
-/* Reapply the pointer cursor for anchor tags */
-a, button {
-  cursor: revert;
+/* Remove default margin */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+figure,
+blockquote,
+dl,
+dd {
+  margin: 0;
 }
 
-/* Remove list styles (bullets/numbers) */
-ol, ul, menu {
+/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+ul[role=list],
+ol[role=list] {
   list-style: none;
 }
 
-/* For images to not be able to exceed their container */
-img {
+/* Set core root defaults */
+html:focus-within {
+  scroll-behavior: smooth;
+}
+
+/* Set core body defaults */
+body {
+  min-height: 100vh;
+  text-rendering: optimizeSpeed;
+  line-height: 1.5;
+}
+
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+  -webkit-text-decoration-skip: ink;
+          text-decoration-skip-ink: auto;
+}
+
+/* Make images easier to work with */
+img,
+picture {
   max-width: 100%;
+  display: block;
 }
 
-/* removes spacing between cells in tables */
-table {
-  border-collapse: collapse;
+/* Inherit fonts for inputs and buttons */
+input,
+button,
+textarea,
+select {
+  font: inherit;
 }
 
-/* revert the 'white-space' property for textarea elements on Safari */
-textarea {
-  white-space: revert;
+/* Remove all animations, transitions and smooth scroll for people that prefer not to see them */
+@media (prefers-reduced-motion: reduce) {
+  html:focus-within {
+    scroll-behavior: auto;
+  }
+  *,
+*::before,
+*::after {
+    -webkit-animation-duration: 0.01ms !important;
+            animation-duration: 0.01ms !important;
+    -webkit-animation-iteration-count: 1 !important;
+            animation-iteration-count: 1 !important;
+    -webkit-transition-duration: 0.01ms !important;
+            transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }
-
-/* minimum style to allow to style meter element */
-meter {
-  -webkit-appearance: revert;
-     -moz-appearance: revert;
-          appearance: revert;
-}
-
-/* reset default text opacity of input placeholder */
-::-webkit-input-placeholder {
-  color: unset;
-}
-::-moz-placeholder {
-  color: unset;
-}
-:-ms-input-placeholder {
-  color: unset;
-}
-::-ms-input-placeholder {
-  color: unset;
-}
-::placeholder {
-  color: unset;
-}
-
-/* fix the feature of 'hidden' attribute.
-   display:revert; revert to element instead of attribute */
-:where([hidden]) {
-  display: none;
-}
-
 :root {
   --lightRed: hsl(356, 100%, 66%);
   --veryLightRed:hsl(355, 100%, 74%);
@@ -91,11 +91,6 @@ meter {
   --overPass: "Overpass", sans-serif;
   --ubuntu: "Ubuntu", sans-serif;
   --baseFont: 16px;
-  --mobilePhonesDown: 599px;
-  --tabletVertUp: 600px;
-  --tabletHorzUp: 900px;
-  --desktopUp: 1200px;
-  --wideScreenUp: 1800px;
 }
 
 h1, h2, h3 {
@@ -119,18 +114,19 @@ p {
   font-family: var(--ubuntu);
   color: var(--veryDarkGrayBlue);
   padding: 1em;
+  text-align: center;
+  line-height: 1.75rem;
 }
 
 section#hero {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 1em;
-  background-image: url("../img/bg-pattern-intro-mobile.svg");
-  background-image: url("../img/bg-pattern-intro-mobile.svg"), -webkit-gradient(linear, left top, left bottom, from(var(--bkgVeryLightRed)), to(var(--bkgLightRed)));
-  background-image: url("../img/bg-pattern-intro-mobile.svg"), linear-gradient(180deg, var(--bkgVeryLightRed), var(--bkgLightRed));
+  background-image: -webkit-gradient(linear, left top, left bottom, from(var(--bkgVeryLightRed)), to(var(--bkgLightRed)));
+  background-image: linear-gradient(180deg, var(--bkgVeryLightRed), var(--bkgLightRed));
   background-repeat: no-repeat;
-  background-size: 1400px;
-  background-position: top 35% left 37%;
+  background-size: cover;
+  background-position: center;
   padding: 4em 2em 8em 2em;
   text-align: center;
   border-bottom-left-radius: 100px;
@@ -139,6 +135,7 @@ section#hero header {
   grid-column: 1/span 4;
   display: grid;
   grid-template-columns: 1fr 1fr;
+  height: 0;
 }
 section#hero header #hamburger,
 section#hero header #close-icon {
@@ -175,6 +172,8 @@ section#hero a.btn.outline {
 }
 
 section#main-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
   margin-top: 100px;
 }
 section#main-content h2 {
@@ -183,43 +182,55 @@ section#main-content h2 {
   font-weight: 600;
   color: var(--veryDarkGrayBlue);
 }
+section#main-content h2:first-child {
+  grid-column: span 2;
+}
+section#main-content picture {
+  grid-column: 2/-1;
+}
+section#main-content .light-container {
+  grid-row: 2/2;
+}
 section#main-content h3 {
   text-align: center;
   padding: 3em 2em;
   color: var(--veryDarkGrayBlue);
+}
+section#main-content img#phone-img {
+  grid-column: 3/1;
+  z-index: 10;
 }
 section#main-content .dark-container {
   background-image: url("../img/bg-pattern-circles.svg");
   background-image: url("../img/bg-pattern-circles.svg"), -webkit-gradient(linear, left top, left bottom, from(var(--bkgDarkGrayBlue)), to(var(--bkgDarkDesatBlue)));
   background-image: url("../img/bg-pattern-circles.svg"), linear-gradient(var(--bkgDarkGrayBlue), var(--bkgDarkDesatBlue));
   background-repeat: no-repeat;
-  background-size: cover;
-  background-position: top 120% left;
-  padding: 1em;
-  border-top-right-radius: 50px;
-  border-bottom-left-radius: 50px;
+  padding: 5em;
+  border-top-right-radius: 100px;
+  border-bottom-left-radius: 100px;
+  grid-column: 1/-1;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
 }
 section#main-content .dark-container h2, section#main-content .dark-container p {
   color: var(--white);
+  text-align: center;
+  grid-column: 2/-1;
+}
+section#main-content .dark-container h2 {
+  font-size: 2.4rem;
+}
+section#main-content img#phone-img,
+section#main-content .dark-container {
+  grid-row: 4/3;
+  align-self: self-end;
 }
 
+section#additional-content {
+  padding-top: 70px;
+}
 section#additional-content h3 {
   text-align: center;
-}
-
-footer#footer {
-  background-color: var(--veryDarkBlackBlue);
-  color: var(--white);
-  border-top-right-radius: 100px;
-}
-footer#footer img#footer-logo {
-  padding: 2em;
-}
-footer#footer ul li {
-  text-align: center;
-}
-footer#footer ul li a {
-  font-family: var(--ubuntu);
 }
 
 #mobile-menu-container {
@@ -227,7 +238,7 @@ footer#footer ul li a {
   grid-column: span 3;
   margin-top: 1em;
   padding: 2em;
-  border-radius: 10px;
+  border-radius: 5px;
   opacity: 0;
   height: 60px;
 }
@@ -237,9 +248,64 @@ nav#right-main-menu {
   text-align: center;
   grid-column: span 2;
 }
+nav#left-main-menu ul,
+nav#right-main-menu ul {
+  padding-left: 0;
+}
+nav#left-main-menu ul li,
+nav#right-main-menu ul li {
+  padding-bottom: 1.5em;
+  list-style-type: none;
+}
+nav#left-main-menu ul li a,
+nav#right-main-menu ul li a {
+  text-decoration: none;
+  font-size: 1.2rem;
+  font-family: var(--overPass);
+  font-weight: 600;
+  color: var(--veryDarkBlue);
+}
+nav#left-main-menu ul li span.arrow,
+nav#right-main-menu ul li span.arrow {
+  margin-left: 0.5em;
+}
+nav#left-main-menu ul li span.arrow img,
+nav#right-main-menu ul li span.arrow img {
+  display: inline;
+}
+
+nav#left-main-menu ul li#product-parent,
+nav#left-main-menu ul li#company-parent,
+nav#left-main-menu ul li#connect-parent {
+  padding-top: 1.5em;
+  padding-bottom: 1.5em;
+}
+nav#left-main-menu ul li ul.sub-menu {
+  background-color: var(--grayBlue);
+  opacity: 0.5;
+}
+
+nav#right-main-menu {
+  margin-top: 1.5em;
+  padding-top: 1.5em;
+  border-top: 1px solid var(--grayBlue);
+}
+nav#right-main-menu ul li {
+  margin-top: 1em;
+}
+nav#right-main-menu ul li a.btn {
+  background-image: -webkit-gradient(linear, left top, left bottom, from(var(--bkgVeryLightRed)), to(var(--bkgLightRed)));
+  background-image: linear-gradient(var(--bkgVeryLightRed), var(--bkgLightRed));
+  color: var(--white);
+  padding: 1em 3em;
+}
+
 li ul.sub-menu {
-  height: 0;
-  opacity: 0;
+  padding-top: 1em;
+  margin-top: 1em;
+}
+li ul.sub-menu li a {
+  color: var(--grayBlue);
 }
 
 @-webkit-keyframes open-menu {
@@ -309,6 +375,32 @@ li ul.sub-menu {
   display: none;
 }
 
+footer#footer {
+  padding-top: 100px;
+  background-color: var(--veryDarkBlackBlue);
+  color: var(--white);
+  border-top-right-radius: 100px;
+}
+footer#footer section {
+  display: grid;
+}
+footer#footer img#footer-logo {
+  padding: 2em;
+  margin: auto;
+}
+footer#footer ul {
+  padding-left: 0;
+}
+footer#footer ul li {
+  text-align: center;
+  list-style: none;
+}
+footer#footer ul li a {
+  text-decoration: none;
+  font-family: var(--ubuntu);
+  color: var(--white);
+}
+
 .attribution {
   font-size: 11px;
   text-align: center;
@@ -316,4 +408,88 @@ li ul.sub-menu {
 
 .attribution a {
   color: hsl(228deg, 45%, 44%);
+}
+
+@media screen and (max-width: 599px) {
+  section#hero {
+    background-image: url("../img/bg-pattern-intro-mobile.svg");
+    background-image: url("../img/bg-pattern-intro-mobile.svg"), -webkit-gradient(linear, left top, left bottom, from(var(--bkgVeryLightRed)), to(var(--bkgLightRed)));
+    background-image: url("../img/bg-pattern-intro-mobile.svg"), linear-gradient(180deg, var(--bkgVeryLightRed), var(--bkgLightRed));
+    background-size: 1400px;
+    background-position: top 35% left 37%;
+  }
+  section#main-content {
+    display: block;
+  }
+  section#main-content .dark-container {
+    background-image: url("../img/bg-pattern-circles.svg");
+    background-image: url("../img/bg-pattern-circles.svg"), -webkit-gradient(linear, left top, left bottom, from(var(--bkgDarkGrayBlue)), to(var(--bkgDarkDesatBlue)));
+    background-image: url("../img/bg-pattern-circles.svg"), linear-gradient(var(--bkgDarkGrayBlue), var(--bkgDarkDesatBlue));
+    background-repeat: no-repeat;
+    background-size: 600px;
+    background-position: top 4400% left 50%;
+    padding: 0 0 12em 0;
+    border-top-right-radius: 100px;
+    border-bottom-left-radius: 100px;
+    grid-column: 1/-1;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+  section#main-content .dark-container h2, section#main-content .dark-container p {
+    color: var(--white);
+    text-align: center;
+    grid-column: span 2;
+  }
+  section#main-content .dark-container h2 {
+    font-size: 2.4rem;
+  }
+  section#main-content img#phone-img,
+section#main-content .dark-container {
+    grid-row: 1/-1;
+    align-self: self-end;
+  }
+  section#main-content img#phone-img {
+    margin-top: -12em;
+  }
+  section#main-content #light-container {
+    margin-bottom: 12em;
+  }
+}
+@media screen and (min-width: 600px) {
+  section#hero {
+    background-image: url("../img/bg-pattern-intro-desktop.svg");
+    background-image: url("../img/bg-pattern-intro-desktop.svg"), -webkit-gradient(linear, left top, left bottom, from(var(--bkgVeryLightRed)), to(var(--bkgLightRed)));
+    background-image: url("../img/bg-pattern-intro-desktop.svg"), linear-gradient(180deg, var(--bkgVeryLightRed), var(--bkgLightRed));
+  }
+}
+@media screen and (min-width: 900px) {
+  section#main-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    margin-top: 100px;
+  }
+  section#main-content h2 {
+    text-align: center;
+    padding-bottom: 1em;
+    font-weight: 600;
+    color: var(--veryDarkGrayBlue);
+  }
+  section#main-content h2:first-child {
+    grid-column: span 2;
+  }
+  section#main-content picture {
+    grid-column: 2/-1;
+  }
+  section#main-content .light-container {
+    grid-row: 2/2;
+  }
+  section#main-content h3 {
+    text-align: center;
+    padding: 3em 2em;
+    color: var(--veryDarkGrayBlue);
+  }
+  section#main-content img#phone-img {
+    grid-column: 3/1;
+    z-index: 10;
+  }
 }

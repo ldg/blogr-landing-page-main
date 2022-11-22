@@ -1,4 +1,30 @@
 
 //Footer Styles
+footer#footer {
+    padding-top: 100px;
+    background-color: var(--veryDarkBlackBlue);
+    color: var(--white);
+    border-top-right-radius: 100px;
+    section {
+        display: grid;
+    }
+        img#footer-logo {
+            padding: 2em;
+            margin: auto;
+        }
+        ul {
+            padding-left: 0;
+            li {
+                text-align: center;
+                list-style: none;
+                a {
+                    text-decoration: none;
+                    font-family: var(--ubuntu);
+                    color: var(--white);
+                }
+            }
+        }
+}
+
 .attribution { font-size: 11px; text-align: center; }
 .attribution a { color: hsl(228, 45%, 44%); }
