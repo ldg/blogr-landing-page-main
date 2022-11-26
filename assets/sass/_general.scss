@@ -44,38 +44,65 @@ section#hero {
                 //     opacity: 0;
                 // }
         }
-        h1 {
-            color: var(--white);
-            grid-column: 1 / span 4;
-            font-weight: 600;
-            padding-top: 90px;
-        }
-        p {
-            grid-column: 1 / span 4;
-            color: var(--white);
-            font-size: 1.1rem;
-            padding-top: .5em;
-        }
-        .btn{
-            font-family: var(--overPass);
-            padding: 1em;
-            margin-top: 1em;
-            border-radius: 50px;
-        }
-        a.btn.solid {
-            grid-column: 1 / 3;
-            background-color: var(--white);
-            border: 1px solid var(--white);
-            color: var(--lightRed);
-        }
-        a.btn.outline {
-            grid-column: 3 / -1;
-            border: 1px solid var(--white);
-            color: var(--white);
+        .hero-content {
+            grid-column: 2/4;
+            h1 {
+                color: var(--white);
+                grid-column: 1 / span 4;
+                font-weight: 600;
+                padding: 90px 0 0 0;
+            }
+            p {
+                grid-column: 1 / span 4;
+                color: var(--white);
+                font-size: 1.1rem;
+                padding: 2em 0 4em 0;
+            }
+            .btn{
+                font-family: var(--overPass);
+                padding: 1em;
+                margin-top: 1em;
+                border-radius: 50px;
+            }
+            a.btn.solid {
+                grid-column: 1 / 3;
+                background-color: var(--white);
+                border: 1px solid var(--white);
+                color: var(--lightRed);
+            }
+            a.btn.outline {
+                grid-column: 3 / -1;
+                border: 1px solid var(--white);
+                color: var(--white);
+            }
         }
 }
 
-
+section#main-content {
+    .dark-container {
+        background-image: url('../img/bg-pattern-circles.svg');
+        background-image: url('../img/bg-pattern-circles.svg'), linear-gradient(var(--bkgDarkGrayBlue), var(--bkgDarkDesatBlue));
+        background-repeat: no-repeat;
+        // background-size: 600px;
+        background-position: top center;
+        padding: 0 0 12em 0;
+        border-top-right-radius: 100px;
+        border-bottom-left-radius: 100px;
+        grid-column: 1/-1;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+            h2,p {
+                color: var(--white);
+                text-align: center;
+                grid-column: span 2;
+            }
+            h2 {
+                // margin-top: 5em;
+                font-size: 2.4rem;
+                line-height: 3.5rem;
+            }
+    }
+}
 
 section#additional-content {
     padding-top: 70px;
