@@ -8,17 +8,26 @@
         background-image: url('../img/bg-pattern-intro-mobile.svg'), linear-gradient(180deg, var(--bkgVeryLightRed), var(--bkgLightRed));
         background-size: 1400px;
         background-position: top 35% left 37%;
+        margin-bottom: 5em ;
     }
 
     section#main-content {
         display: block;
         // grid-row: auto;
+        h2 {
+            text-align: center;
+            padding-bottom: 0;
+            line-height: 2rem;
+        }
+        picture {
+            margin-top: 2em;
+        }
         .dark-container {
             background-image: url('../img/bg-pattern-circles.svg');
             background-image: url('../img/bg-pattern-circles.svg'), linear-gradient(var(--bkgDarkGrayBlue), var(--bkgDarkDesatBlue));
             background-repeat: no-repeat;
             background-size: 600px;
-            background-position: top 4400% left 50%;
+            background-position: top center;
             padding: 0 0 12em 0;
             border-top-right-radius: 100px;
             border-bottom-left-radius: 100px;
@@ -33,17 +42,19 @@
                 h2 {
                     // margin-top: 5em;
                     font-size: 2.4rem;
+                    line-height: 3.5rem;
                 }
         }
         img#phone-img, 
         .dark-container {
             grid-row: 1/-1;
+            grid-column: span 2;
             align-self: self-end;
         }
         img#phone-img {
             margin-top: -12em;
         }
-        #light-container {
+        .light-container {
             margin-bottom: 12em;
         }
 

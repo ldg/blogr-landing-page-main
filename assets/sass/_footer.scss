@@ -22,6 +22,15 @@ footer#footer {
                     font-family: var(--ubuntu);
                     color: var(--white);
                 }
+                ul {
+                    padding: 2em 0;
+                    li {
+                        padding-bottom: .5em;
+                        a {
+                            color: var(--grayBlue);
+                        }
+                    }
+                }
             }
         }
 }

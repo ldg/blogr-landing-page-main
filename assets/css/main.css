@@ -171,61 +171,6 @@ section#hero a.btn.outline {
   color: var(--white);
 }
 
-section#main-content {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  margin-top: 100px;
-}
-section#main-content h2 {
-  text-align: center;
-  padding-bottom: 1em;
-  font-weight: 600;
-  color: var(--veryDarkGrayBlue);
-}
-section#main-content h2:first-child {
-  grid-column: span 2;
-}
-section#main-content picture {
-  grid-column: 2/-1;
-}
-section#main-content .light-container {
-  grid-row: 2/2;
-}
-section#main-content h3 {
-  text-align: center;
-  padding: 3em 2em;
-  color: var(--veryDarkGrayBlue);
-}
-section#main-content img#phone-img {
-  grid-column: 3/1;
-  z-index: 10;
-}
-section#main-content .dark-container {
-  background-image: url("../img/bg-pattern-circles.svg");
-  background-image: url("../img/bg-pattern-circles.svg"), -webkit-gradient(linear, left top, left bottom, from(var(--bkgDarkGrayBlue)), to(var(--bkgDarkDesatBlue)));
-  background-image: url("../img/bg-pattern-circles.svg"), linear-gradient(var(--bkgDarkGrayBlue), var(--bkgDarkDesatBlue));
-  background-repeat: no-repeat;
-  padding: 5em;
-  border-top-right-radius: 100px;
-  border-bottom-left-radius: 100px;
-  grid-column: 1/-1;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-}
-section#main-content .dark-container h2, section#main-content .dark-container p {
-  color: var(--white);
-  text-align: center;
-  grid-column: 2/-1;
-}
-section#main-content .dark-container h2 {
-  font-size: 2.4rem;
-}
-section#main-content img#phone-img,
-section#main-content .dark-container {
-  grid-row: 4/3;
-  align-self: self-end;
-}
-
 section#additional-content {
   padding-top: 70px;
 }
@@ -400,6 +345,15 @@ footer#footer ul li a {
   font-family: var(--ubuntu);
   color: var(--white);
 }
+footer#footer ul li ul {
+  padding: 2em 0;
+}
+footer#footer ul li ul li {
+  padding-bottom: 0.5em;
+}
+footer#footer ul li ul li a {
+  color: var(--grayBlue);
+}
 
 .attribution {
   font-size: 11px;
@@ -417,9 +371,18 @@ footer#footer ul li a {
     background-image: url("../img/bg-pattern-intro-mobile.svg"), linear-gradient(180deg, var(--bkgVeryLightRed), var(--bkgLightRed));
     background-size: 1400px;
     background-position: top 35% left 37%;
+    margin-bottom: 5em;
   }
   section#main-content {
     display: block;
+  }
+  section#main-content h2 {
+    text-align: center;
+    padding-bottom: 0;
+    line-height: 2rem;
+  }
+  section#main-content picture {
+    margin-top: 2em;
   }
   section#main-content .dark-container {
     background-image: url("../img/bg-pattern-circles.svg");
@@ -427,7 +390,7 @@ footer#footer ul li a {
     background-image: url("../img/bg-pattern-circles.svg"), linear-gradient(var(--bkgDarkGrayBlue), var(--bkgDarkDesatBlue));
     background-repeat: no-repeat;
     background-size: 600px;
-    background-position: top 4400% left 50%;
+    background-position: top center;
     padding: 0 0 12em 0;
     border-top-right-radius: 100px;
     border-bottom-left-radius: 100px;
@@ -442,16 +405,18 @@ footer#footer ul li a {
   }
   section#main-content .dark-container h2 {
     font-size: 2.4rem;
+    line-height: 3.5rem;
   }
   section#main-content img#phone-img,
 section#main-content .dark-container {
     grid-row: 1/-1;
+    grid-column: span 2;
     align-self: self-end;
   }
   section#main-content img#phone-img {
     margin-top: -12em;
   }
-  section#main-content #light-container {
+  section#main-content .light-container {
     margin-bottom: 12em;
   }
 }
