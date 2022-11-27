@@ -9,8 +9,7 @@ const parentLinks = document.getElementsByClassName('parent-link');
 const leftMenu = document.querySelector('nav#left-main-menu ul');
 const rightMenu = document.querySelector('nav#right-main-menu ul');
 
-
-
+var width = window.innerWidth;
 
 
 //event listeners

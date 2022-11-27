@@ -1,4 +1,38 @@
 //Nav styles
+// desktop navigation
+div#menu-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-column: 1/-1;
+    gap: 1em;
+    justify-items: end;
+    align-items: center;
+    grid-row: 1/-1;
+    nav#left-main-nav-menu,
+    nav#right-main-nav-menu {
+        ul {
+            display: grid;
+        }
+        ul li {
+            list-style: none;
+            a {
+                color: #fff;
+                text-decoration: none;
+                font-family: var(--overPass);
+            }
+        }
+    }
+    nav#left-main-nav-menu ul {
+        grid-template-columns: repeat(3,1fr);
+        gap: 1em;
+    }
+    nav#right-main-nav-menu ul {
+        grid-template-columns: repeat(2,1fr);
+        gap: 1em;
+    }
+}
+
+// phone navigation
 #mobile-menu-container {
     background-color: var(--white);
     grid-column: span 3;

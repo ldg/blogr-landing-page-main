@@ -141,6 +141,43 @@ section#hero header #hamburger,
 section#hero header #close-icon {
   grid-column: 3/-1;
 }
+section#hero header #logo {
+  grid-column: 1;
+  grid-row: 1/-1;
+}
+section#hero header div#menu-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-column: 1/-1;
+  gap: 1em;
+  justify-items: end;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  grid-row: 1/-1;
+}
+section#hero header div#menu-container nav#left-main-nav-menu ul,
+section#hero header div#menu-container nav#right-main-nav-menu ul {
+  display: grid;
+}
+section#hero header div#menu-container nav#left-main-nav-menu ul li,
+section#hero header div#menu-container nav#right-main-nav-menu ul li {
+  list-style: none;
+}
+section#hero header div#menu-container nav#left-main-nav-menu ul li a,
+section#hero header div#menu-container nav#right-main-nav-menu ul li a {
+  color: #fff;
+  text-decoration: none;
+  font-family: var(--overPass);
+}
+section#hero header div#menu-container nav#left-main-nav-menu ul {
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1em;
+}
+section#hero header div#menu-container nav#right-main-nav-menu ul {
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1em;
+}
 section#hero .hero-content {
   grid-column: 2/4;
 }
@@ -161,6 +198,7 @@ section#hero .hero-content .btn {
   padding: 1em;
   margin-top: 1em;
   border-radius: 50px;
+  margin: 0 0.3em;
 }
 section#hero .hero-content a.btn.solid {
   grid-column: 1/3;
@@ -172,6 +210,9 @@ section#hero .hero-content a.btn.outline {
   grid-column: 3/-1;
   border: 1px solid var(--white);
   color: var(--white);
+}
+section#hero .hero-content a {
+  text-decoration: none;
 }
 
 section#main-content .dark-container {
@@ -202,6 +243,40 @@ section#additional-content {
 }
 section#additional-content h3 {
   text-align: center;
+}
+
+div#menu-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-column: 1/-1;
+  gap: 1em;
+  justify-items: end;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  grid-row: 1/-1;
+}
+div#menu-container nav#left-main-nav-menu ul,
+div#menu-container nav#right-main-nav-menu ul {
+  display: grid;
+}
+div#menu-container nav#left-main-nav-menu ul li,
+div#menu-container nav#right-main-nav-menu ul li {
+  list-style: none;
+}
+div#menu-container nav#left-main-nav-menu ul li a,
+div#menu-container nav#right-main-nav-menu ul li a {
+  color: #fff;
+  text-decoration: none;
+  font-family: var(--overPass);
+}
+div#menu-container nav#left-main-nav-menu ul {
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1em;
+}
+div#menu-container nav#right-main-nav-menu ul {
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1em;
 }
 
 #mobile-menu-container {
@@ -402,6 +477,9 @@ footer#footer ul li ul li a {
   section#hero .hero-content {
     grid-column: 1/-1;
   }
+  section#hero header #menu-container {
+    display: none !important;
+  }
   section#main-content {
     display: block;
   }
@@ -435,8 +513,63 @@ section#main-content .dark-container {
     background-image: url("../img/bg-pattern-intro-desktop.svg"), -webkit-gradient(linear, left top, left bottom, from(var(--bkgVeryLightRed)), to(var(--bkgLightRed)));
     background-image: url("../img/bg-pattern-intro-desktop.svg"), linear-gradient(180deg, var(--bkgVeryLightRed), var(--bkgLightRed));
   }
+  img#hamburger {
+    display: none;
+  }
+  section#main-content .dark-container {
+    grid-template-rows: repeat(3, 1fr);
+    padding: 0;
+  }
+  section#main-content .dark-container #phone-img {
+    grid-row: 1/span 3;
+    margin-top: -4em;
+    margin-bottom: -6em;
+  }
+  section#main-content .dark-container h2, section#main-content .dark-container p {
+    text-align: left;
+    padding: 0;
+  }
+  section#main-content .dark-container h2 {
+    grid-column: 2/-1;
+    grid-row: 1/2;
+    align-self: self-end;
+  }
+  section#main-content .dark-container p {
+    grid-column: 2/2;
+    grid-row: 2/3;
+  }
+  section#additional-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+  section#additional-content picture {
+    grid-column: 1/2;
+    grid-row: 1/span 4;
+  }
+  section#additional-content h3, section#additional-content p {
+    text-align: left;
+    padding: 0;
+  }
+  section#additional-content h3 {
+    -ms-flex-item-align: self-end;
+        align-self: self-end;
+  }
+  footer#footer section {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+  }
+  footer#footer section img#footer-logo {
+    margin: 0;
+  }
+  footer#footer section .attribution {
+    grid-row: 2;
+    grid-column: span 4;
+  }
 }
 @media screen and (min-width: 900px) {
+  section#hero .hero-content h1 {
+    font-size: 3rem;
+  }
   section#main-content {
     display: grid;
     grid-template-columns: 1fr 1fr;
